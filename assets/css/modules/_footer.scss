@@ -1,0 +1,95 @@
+footer {
+    position: relative;
+    margin-top: -2px;
+    z-index: 5;
+    background-color: var(--bs-indigo);
+}
+ul.footer-list {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+ul.footer-list > li > a {
+    color: var(--bs-light);
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    padding: 4px 0;
+    position: relative;
+
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.3));
+    background-repeat: no-repeat;
+    background-position: bottom 4px left;
+    background-size: 100% 1px;
+    transition: background-size .4s ease;;
+}
+ul.footer-list > li > span {
+    display: inline-block;
+    padding: 4px 0;
+}
+ul.footer-list > li > a:before {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: currentColor;
+    transform: translateY(0) scaleX(0);
+    display: inline-block;
+    transition: transform 0.2s;
+    transform-origin: right;
+}
+ul.footer-list > li > a:hover:before {
+    transform: translateY(0) scaleX(1);
+    transform-origin: left;
+}
+
+ul.footer-list > li > ul {
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+ul.footer-list > li > ul > li > a {
+    display: inline-block;
+    font-family: var(--bs-font-terciary);
+    @include font-size(1.6875rem);
+    text-decoration: none;
+    color: #fff;
+    padding: 6px 0;
+    line-height: 1;
+    transition: color 0.3s, letter-spacing 0.3s;
+}
+
+@media(hover:hover) {
+    
+    ul.footer-list > li > ul > li > a:hover {
+        color: var(--bs-yellow);
+        letter-spacing: 1px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    // ul.footer-list {
+    //     margin-bottom: 50px;
+    // }
+}
+
+footer li.current-menu-item a {
+    position: relative;
+}
+footer li.current-menu-item a:after {
+    content: "";
+    position: absolute;
+    right: -14px;
+    top: 10px;
+    display: inline-block;
+    width: calc(4px + 1vw);
+    height: calc(4px + 1vw);
+    max-width: 11px;
+    max-height: 11px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='23' height='23' viewBox='0 0 23 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M11.3518 0C5.08227 0 0 5.08226 0 11.352C0 17.6218 5.08252 22.7038 11.3518 22.7038C17.621 22.7038 22.7036 17.6215 22.7036 11.352C22.7036 5.08252 17.621 0 11.3518 0ZM11.3518 15.2977C9.17245 15.2977 7.40585 13.5311 7.40585 11.352C7.40585 9.17296 9.17245 7.4061 11.3518 7.4061C13.5311 7.4061 15.2977 9.17296 15.2977 11.352C15.2977 13.5311 13.5311 15.2977 11.3518 15.2977Z' fill='%23FFF05A'/%3E %3C/svg%3E ");
+    background-repeat: no-repeat;
+    background-size: cover;
+    scale: 1;
+    transform-origin: center;
+    transition: scale 0.2s 0s;
+}

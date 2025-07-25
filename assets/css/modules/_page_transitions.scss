@@ -1,0 +1,190 @@
+/* ------------------------- Split Words -------------------------------------------------- */
+.split-words, .split-chars {
+   position: relative;
+   transform: translateY(0) translateZ(0) rotate(0.001deg);
+   overflow: hidden;
+}
+
+.split-words .single-word, .split-chars .single-word {
+   position: relative;
+   overflow: hidden;
+   transform: translateY(10%) rotate(0.001deg);
+   margin: -0.17em 0 -0.04em 0;
+   padding: 0.08em 0;
+}
+
+.split-words .single-word .single-word-inner, .split-chars .single-word .single-word-inner {
+   position: relative;
+   transform: translateY(6%) rotate(0.001deg);
+   transform-origin: left top;
+   will-change: transform;
+   white-space: nowrap;
+}
+
+
+/* ------------------------- pageTransitionLeave -------------------------------------------------- */
+
+// Rotate slide in
+.revealLeave {
+   position: fixed;
+   top: 0;
+   z-index: 7;
+   
+   transform: translateY(0%) rotate(90deg);
+   transform-origin: top left;
+
+   width: 100%;
+   height: 100%;
+   transition: transform var(--animation-primary-expo);
+}
+.pageTransitionLeave .revealLeave {
+   transform: translateY(0%) rotate(0deg);
+}
+.revealLeave::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 99%;
+   width: 100vh;
+   height: 100%;
+   background: currentColor;
+}
+ 
+
+[data-barba-namespace="light-page"] {
+   background-color: var(--bs-violet);
+}
+
+.pageTransitionLeave .revealEnter.angle {
+   transform: translateY(-180%) rotate(0);
+   transition-delay: 0.2s;
+   display: block;
+}
+
+   
+
+
+/* ------------------------- pageTransitionEnter -------------------------------------------------- */
+// Background image zoom in from center
+.animateBackground img,
+.animateBackground video {
+   transform-origin: center center;
+}
+
+// Rotate slide in
+.revealEnter {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 6;
+   transform: translateY(-100%) rotate(90deg);
+   transform-origin: bottom left;
+   width: 100vw!important;
+   height: 100vw!important;
+   transition: transform var(--animation-primary-expo-slow);
+}
+.revealEnter.angle {
+   position: absolute;
+}
+
+.pageTransitionEnter .revealEnter {
+   transform: translateY(-100%) rotate(0);
+}
+.pageTransitionEnter .revealEnter.angle {
+   transform: translateY(-100%) rotate(0);
+}
+
+@include media-breakpoint-up(md) {
+   .pageTransitionEnter .revealEnter.angle {
+      transform: translateY(-100%) rotate(var(--rotate-degree));
+   }
+}
+
+
+.pageTransitionEnter .revealEnter.revealEnterZ {
+   opacity: 0;
+}
+
+.revealEnter::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 99%;
+   width: 100vh;
+   height: 100%;
+   background: currentColor;
+}
+
+
+.revealEnter2 {
+   position: absolute;
+   top: 0;
+   z-index: 2;
+   transform: translateY(0%) rotate(90deg);
+   transform-origin: top left;
+   width: 100vw!important;
+   min-height: 150vh!important;
+   height: 100%!important;
+   transition: transform var(--animation-primary-expo);
+}
+
+.revealEnter2::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 99%;
+   width: 120vh;
+   height: 100%;
+   background: currentColor;
+}
+
+.pageTransitionEnter .revealEnter2 {
+   transform: translateY(0%) rotate(0);
+}
+.pageTransitionLeave .revealEnter2 {
+   transform: translateY(0%) rotate(0);
+}
+
+.pageTransitionLeave .revealEnter {
+   display: none;
+}
+
+.pageTransitionEnter .revealEnter2 {
+   transform: translateY(0%) rotate(var(--rotate-degree));
+}
+
+@include media-breakpoint-down(md) {
+   .pageTransitionEnter .revealEnter2,
+   .pageTransitionLeave .revealEnter2 {
+      top:var(--top-distance-1);
+      transform: translateY(0%) rotate(var(--rotate-degree));
+   }
+}
+
+
+.animateOpacity {
+   will-change: opacity;
+   opacity: 0;
+   transition:opacity 0.8s ease 0.5s;
+}
+.pageTransitionEnter .animateOpacity, .pageTransitionLeave .animateOpacity {
+   opacity: 1;
+}
+
+
+
+.bottom-0 .circle-hero-inner {
+   transform: translate(-35%, 0%) rotate(0);
+}
+
+@include media-breakpoint-down(md) {
+   .circle-hero-inner {
+
+      min-height: 660px;
+      min-width: 660px;
+      transform: translate(-50%, -50%) rotate(0);
+
+   }
+   
+}
+

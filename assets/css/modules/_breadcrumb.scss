@@ -1,0 +1,81 @@
+.breadcrumb{
+    font-weight: 600;
+    flex-wrap: wrap;
+    gap: 7px 0;
+}
+.breadcrumb svg {
+    color: currentColor;
+    transition: color 0.5s;
+    position: relative;
+    top: -2px;
+}
+.breadcrumb a:hover svg {
+    color: var(--bs-cyan);
+}
+
+.breadcrumb a {
+    text-decoration: none;
+}
+
+.breadcrumb li a {
+    display: inline-block;
+    position: relative;
+    color: currentColor;
+    text-decoration: none;
+    text-underline-position: under;
+    text-decoration-thickness: 1px; 
+}
+
+.breadcrumb li a span {
+    transition: background-color 0.5s;
+
+}
+.breadcrumb li a:hover span { 
+    //background-color: var(--bs-purple);
+}
+.breadcrumb li a:before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    height: 1px;
+    background-color: #fff;
+    transform: translateY(0) scaleX(0);
+    display: inline-block;
+    transition: transform 0.3s;
+    transform-origin: right;
+}
+.breadcrumb li a:hover:before {
+    transform: translateY(0) scaleX(1);
+    transform-origin: left;
+}
+
+
+@include media-breakpoint-down(md) {
+    .breadcrumb{
+        font-size: 14px;
+    }
+}
+@include media-breakpoint-down(sm) {
+    .breadcrumb{
+        font-size: 12px;
+    }
+}
+
+
+
+
+.breadcrumb li:not(:last-child):after {
+    margin-left: 8px;
+    margin-right: 8px;
+    color: var(--bs-yellow);
+    content: "/";
+    display: inline-block;
+}
+
+
+.breadcrumb a:hover {
+    text-decoration: none!important;
+}
+

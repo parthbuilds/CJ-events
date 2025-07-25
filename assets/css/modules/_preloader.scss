@@ -1,0 +1,86 @@
+//  This hides the quick glimpse before the loader starts
+.loader-screen {
+   pointer-events: none;
+   position: fixed;
+   z-index: 9999;
+   inset:0;
+   transition: opacity 0.3s;
+   background-color: var(--bs-violet);
+}
+
+.loading-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   overflow: hidden;
+   max-width: 100%;
+   z-index: 98;
+   pointer-events: none;
+   display: flex;
+   margin: auto;
+   width: 70%;
+   max-width: 800px;
+   justify-content: center;
+   align-items: center;
+}
+
+.loader-mask {
+   margin: auto;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 9999;
+}
+
+.loader-mask .full-bg {
+   //padding-right: var(--indent-logo-padding);
+}
+
+// Dergrees logo icon animate
+.loader-degrees {
+   opacity: 0;
+   //transform: translateY(10%);
+   //transform: scale(0);
+   transform-origin: center right;
+}
+
+.logoMove {
+   display: flex;
+   align-items: center;
+   z-index: 99;
+   opacity: 1;
+   width: 100%;
+   position: absolute;
+}
+
+.logoMove path{ 
+   fill:rgba(255,255,255,1);
+}
+
+
+
+.mask {
+   mask-repeat: no-repeat;
+   mask-size: auto;
+   //height: 100vh;
+   mask-position: 0 300%;
+   object-fit: contain!important;
+}
+.mask-1 {
+   mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 1032 351' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M240.532 162.141C240.532 162.141 285.652 155.291 285.652 94.3367C285.65 54.7883 252.705 0.853027 153.374 0.853027C115.017 0.853027 79.6148 10.1958 53.5532 29.3752C27.4917 49.0403 10.771 78.5479 10.771 118.867H103.216C103.216 90.4484 123.868 76.0872 150.421 76.0872C170.582 76.0872 195.169 84.4486 195.169 106.085C195.169 132.638 169.109 137.065 148.455 137.065L119.934 137.048V199.507L149.438 199.527C171.738 199.685 194.185 205.356 194.185 234.917C194.185 262.947 176.483 273.272 148.453 273.272C131.242 273.272 117.654 268.747 107.639 258.028C98.8516 248.624 94.3626 235.635 94.3626 217.215H0.936475C-1.52216 242.787 -1.03043 350.969 152.882 350.969C264.996 350.969 296.466 285.073 296.466 243.278C296.466 168.028 240.532 164.142 240.532 164.142V162.141Z' fill='white'/%3E %3C/svg%3E");
+}
+.mask-2 {
+   mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 1032 351' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M464.5 115.424C433.519 115.424 408.443 120.831 385.332 141.978C388.772 108.049 407.459 71.6607 444.829 71.6607C471.065 71.6607 483.679 89.8546 485.642 96.2431H575.628C564.814 29.3742 520.557 0.852051 446.798 0.852051C342.056 0.852051 292.391 80.5098 292.391 188.2C292.391 272.289 334.682 350.966 438.436 350.966C520.067 350.966 579.074 308.675 579.074 224.592C579.074 157.715 530.391 115.424 464.5 115.424ZM440.159 273.16C415.966 273.16 396.352 253.546 396.352 229.352C396.352 205.159 415.966 185.545 440.159 185.545C464.353 185.545 483.967 205.159 483.967 229.352C483.967 253.546 464.353 273.16 440.159 273.16Z' fill='white'/%3E %3C/svg%3E");
+}
+.mask-3 {
+   mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 1032 351' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M721.348 0.844727C783.799 0.844727 867.393 43.625 867.393 175.901C867.393 308.178 783.799 350.958 721.84 350.958C659.88 350.958 576.287 308.178 576.287 175.901C576.287 43.625 659.878 0.844727 721.348 0.844727ZM721.348 275.722C771.504 275.722 773.963 212.289 773.963 175.901C773.963 140.495 771.504 76.077 722.332 76.077C671.686 76.077 669.717 139.018 669.717 175.901C669.717 211.798 671.684 275.722 721.348 275.722Z' fill='white'/%3E %3C/svg%3E");
+}
+.mask-4 {
+   mask-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 1032 351' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath d='M943.943 0.908691C895.602 0.908691 856.414 40.0962 856.414 88.4401C856.414 136.784 895.603 175.969 943.943 175.969C992.283 175.969 1031.47 136.782 1031.47 88.4401C1031.47 40.0981 992.283 0.908691 943.943 0.908691ZM943.943 118.864C927.139 118.864 913.518 105.242 913.518 88.4401C913.518 71.6381 927.139 58.0145 943.943 58.0145C960.747 58.0145 974.369 71.6381 974.369 88.4401C974.369 105.242 960.747 118.864 943.943 118.864Z' fill='white'/%3E %3C/svg%3E");
+}
+

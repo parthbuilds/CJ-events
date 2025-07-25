@@ -1,0 +1,276 @@
+:root{
+    --padding-container: 15px;
+    --padding-section: 50px;
+}
+@include media-breakpoint-up(sm) {
+    :root{
+        --padding-container: 4vw;
+        --padding-section: 6vw;
+    }
+}
+@include media-breakpoint-up(md) {
+    :root{
+        --padding-container: 6vw;
+        --padding-section: 8vw;
+    }
+}
+@include media-breakpoint-up(xxl) {
+    :root{
+        --padding-container: 100px;
+        --padding-section: 6vw;
+    }
+}
+
+.container {padding-left: var(--padding-container);padding-right: var(--padding-container);}
+section, .section {padding-top: var(--padding-section);padding-bottom: var(--padding-section); position:relative; z-index: 5;}
+
+@include media-breakpoint-up(xl) {
+    .inner {
+        padding: 0 calc(var(--indent-left) + var(--indent-logo-padding));
+        
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .inner-xxl {
+        padding: 0 calc(var(--indent-left) + var(--indent-logo-padding));
+        
+    }
+}
+.pb-container {
+    padding-bottom: var(--padding-container);
+}
+
+/* Breakouts */
+.breakout {
+    margin-left: calc(var(--padding-container) * -1);
+    margin-right: calc(var(--padding-container) * -1); 
+    width: calc(100% + var(--padding-container)*2)
+}
+
+.breakout-half {
+    margin-left: calc(var(--padding-container) * -0.5);
+    margin-right: calc(var(--padding-container) * -0.5); 
+    width: calc(100% + var(--padding-container))
+}
+
+
+
+.breakout-start {
+    margin-left: calc(var(--padding-container) * -1);
+    width: calc(100% + var(--padding-container))
+}
+
+.breakout-end {
+    margin-right: calc(var(--padding-container) * -1); 
+    width: calc(100% + var(--padding-container))
+}
+
+.touchevents  .breakout-touch {
+    margin-left: calc(var(--padding-container) * -1);
+    margin-right: calc(var(--padding-container) * -1); 
+    width: calc(100% + var(--padding-container)*2)
+}
+
+.touchevents .container-touch {
+    padding-left: var(--padding-container)!important;
+    padding-right: var(--padding-container)!important;
+}
+
+/* Breakouts up */
+@include media-breakpoint-up(sm) {
+    .breakout-sm {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-sm-start {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-sm-end {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .breakout-md {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-md-start {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-md-end {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+
+    .breakout-md-half {
+        margin-left: calc(var(--padding-container) * -0.5);
+        margin-right: calc(var(--padding-container) * -0.5); 
+        width: calc(100% + var(--padding-container))!important
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .breakout-lg {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-lg-start {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-lg-end {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+
+    .breakout-lg-half {
+        margin-left: calc(var(--padding-container) * -0.5);
+        margin-right: calc(var(--padding-container) * -0.5); 
+        width: calc(100% + var(--padding-container))!important
+    }
+
+    .breakout-lg-half-end {
+        margin-right: calc(var(--padding-container) * -0.5); 
+        width: calc(100% + var(--padding-container) * 0.5)!important
+    }
+
+    .pb-container-lg-half {
+        padding-bottom: calc(var(--padding-container) * 0.5);
+    }
+    .translate-top-container-lg-half {
+        transform: translateY(calc(var(--padding-container) * -0.5));
+    }
+    .margin-bottom-container-lg-half    {
+        margin-bottom: calc(var(--padding-container) * -0.5);
+    }
+    
+}
+
+@include media-breakpoint-up(xl) {
+    .breakout-xl {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-xl-start {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-xl-end {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+    
+    .breakout-xl-half {
+        margin-left: calc(var(--padding-container) * -0.5);
+        margin-right: calc(var(--padding-container) * -0.5); 
+        width: calc(100% + var(--padding-container))!important
+    }
+
+}
+
+@include media-breakpoint-up(xxl) {
+    .breakout-xxl {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-xxl-start {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-xxl-end {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+}
+
+
+/* Breakouts down */
+@include media-breakpoint-down(sm) {
+    .breakout-sm-down {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-sm-start-down {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-sm-end-down {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .breakout-md-down {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-md-start-down {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-md-end-down {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .breakout-lg-down {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-lg-start-down {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-lg-end-down {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+}
+
+@include media-breakpoint-down(xl) {
+    .breakout-xl-down {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-xl-start-down {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-xl-end-down {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+}
+
+@include media-breakpoint-down(xxl) {
+    .breakout-xxl-down {
+        margin-left: calc(var(--padding-container) * -1);
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container)*2)
+    }
+    .breakout-xxl-start-down {
+        margin-left: calc(var(--padding-container) * -1);
+        width: calc(100% + var(--padding-container))
+    }
+    .breakout-xxl-end-down {
+        margin-right: calc(var(--padding-container) * -1); 
+        width: calc(100% + var(--padding-container))
+    }
+}

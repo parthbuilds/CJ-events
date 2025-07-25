@@ -1,0 +1,569 @@
+// Innitial load avoiding the jump
+.carousel {
+    opacity: 0;
+    transition: opacity 0.6s
+}
+
+.flickity-enabled.carousel {
+    opacity: 1;
+}
+
+// Always make sure the inner items goes full width
+.sliderNav li{
+    position: relative;
+}
+
+.sliderNav li > div {
+    visibility: hidden;
+    pointer-events: none;
+    transition: visibility 0.8s 0s;
+}
+
+//.sliderNav li.is-removed > div {}
+.sliderNav li.is-selected > div {
+    visibility:visible;
+    pointer-events: auto;
+}
+
+// Arrows
+
+.slider-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s, border var(--animation-elastic-css), color 0.4s;
+
+    color: currentColor;
+    cursor: pointer;
+
+    border: 0px solid rgba(255, 255, 255, 0.1);
+    outline: 1px solid #fff;
+
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+}
+
+@include media-breakpoint-up(lg) {
+    .slider-arrow {
+        width: 80px;
+        height: 80px;
+    }
+
+}
+
+
+
+
+
+.slider-arrow:hover {
+    border:10px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider-arrow:active {
+    scale:0.98;
+}
+
+.slider-arrow svg {
+    height: auto;
+    width: 30px;
+    transition: scale 0.4s;
+}
+
+.slider-arrow:hover svg{
+    scale: 0.9;
+}
+
+
+
+.sliderNavPrev {
+    //justify-content: flex-start;
+}
+
+.sliderNavNext {
+    //justify-content: flex-end;
+}
+
+
+.sliderNavPrev:hover {
+    transform: translateX(-4px);
+}
+
+.sliderNavNext:hover {
+    transform: translateX(4px);
+}
+
+.slider-arrow svg{
+    max-width: 100%;
+}
+
+@include media-breakpoint-down(md) {
+    .slider-arrow { 
+        max-width: 30%;
+    }
+}
+
+
+
+// Indicator mover
+.indicator {
+    position: absolute;
+    height: 5px;
+    background-color: currentColor;
+    left: 0;
+    bottom: -3px;
+    transition: left var(--animation-smooth), width var(--animation-smooth);
+}
+
+
+// Cicle progress bar
+.pagination-progress {
+    width: 60px;
+    min-width: 40px;
+    max-width: 60%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: conic-gradient(currentColor calc(var(--progress) * 1%), var(--bs-gray-500) calc(var(--progress) * 1%));
+    display: flex;
+}
+
+@include media-breakpoint-up(xl) {
+    .pagination-progress {
+        width: 75px;
+    }
+}
+
+.progress-counter {
+    background-color: #fff;
+    width: calc(100% - 6px);
+    aspect-ratio: 1 / 1;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding-left: 2px;
+    font-weight: $headings-font-weight;
+    color: var(--bs-heading-color);
+}
+
+
+// Number progress
+[slider-numbers] {
+    width: 50px;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+@include media-breakpoint-up(md) {
+    [slider-numbers] {
+        width: 100%;
+    }
+}
+
+
+[slider-numbers] li {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(101%);
+}
+
+[slider-numbers] li.is-selected {
+    transition: transform var(--animation-ease-fast);
+    transform: translatey(0);
+}
+
+[slider-numbers] li.is-removed {
+    transition: transform var(--animation-ease-fast);
+    transform: translatey(-101%);
+}
+
+// CUSTOM SHIT
+/*************************** Mask image ***************************/
+[slider-mask]{
+    position: absolute!important;
+    inset:0;
+    clip-path: inset(0% 0% 0% 0%);
+    transition: clip-path var(--animation-smooth);
+}
+[slider-mask] img{
+    scale: 1.2;
+    transition:scale var(--animation-smooth);
+    transform-origin: center;
+}
+[slider-mask].is-removed {
+    z-index: 2;
+    clip-path: inset(0% 100% 0% 0%);
+}
+[slider-mask].is-removed img{
+    scale: 1;
+}
+[slider-mask].is-selected {
+    z-index: 1;
+}
+[slider-mask].is-selected img{
+    scale: 1;
+}
+
+
+/*************************** Mask image 2 ***************************/
+[slider-mask-2]{
+    position: absolute!important;
+    inset:0;
+    clip-path: inset(0% 0% 0% 0%);
+    transition: clip-path var(--animation-ease);
+}
+[slider-mask-2] img{
+    scale: 1;
+    transition:scale var(--animation-ease), opacity var(--animation-ease) 0s, filter var(--animation-ease) 0s;
+    transform-origin: center;
+    opacity: 1;
+}
+[slider-mask-2].is-removed {
+    z-index: 2;
+    clip-path: inset(0% 0% 100% 0%);
+}
+[slider-mask-2].is-removed img{
+    scale: 1;
+    //opacity: 0.5;
+}
+[slider-mask-2].is-selected {
+    z-index: 1;
+}
+[slider-mask-2].is-selected img{
+    scale: 1;
+    filter: brightness(0.5);
+}
+
+/*************************** Fade ***************************/
+[slider-fade] {
+    opacity: 0;
+    transition: opacity var(--animation-ease-fast)  0s;
+}
+
+.is-removed [slider-fade] {
+    opacity: 0;
+}
+
+.is-selected [slider-fade]{
+    opacity: 1;
+    transition: opacity var(--animation-ease-fast)  0.4s;
+}
+
+
+/*************************** Zoom ***************************/
+[slider-zoom] {
+    transform: scale(0.5);
+    opacity: 0;
+    transform-origin: center;
+    transition: transform var(--animation-ease-fast) 0s, opacity var(--animation-ease-fast)  0s;
+}
+
+.is-removed [slider-zoom] {
+    transform: scale(0.5);
+    opacity: 0;
+}
+
+.is-selected [slider-zoom] {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform var(--animation-ease-fast) 0.4s, opacity var(--animation-ease-fast)  0.4s;
+}
+
+
+/*************************** Move zoom in anoud out ***************************/
+[slider-zIndex2] {
+    opacity: 0;
+    transform: translateY(20%) scale(1.2);
+    transform-origin: center top;
+    transition: opacity 0.3s 0.3s, transform 0.6s 0s ease;
+}
+
+[slider-zIndex2].is-removed {
+    opacity: 0;
+    transform: translateY(-20%) scale(0.8);
+}
+
+[slider-zIndex2].is-selected {
+    opacity: 1;
+    transition: opacity 0.2s 0.6s, transform 1s 0.4s ease;
+    transform: translateY(0) scale(1);
+}
+
+/*************************** Move on X ***************************/
+[slider-move-on-x] {
+    opacity: 0;
+    transform: translateX(15px);
+    transition: opacity 0.4s 0s, transform 0.6s 0s;
+}
+
+.is-removed [slider-move-on-x] {
+    //transform-origin: bottom;
+    transform: translateX(-15px);
+}
+
+.is-selected [slider-move-on-x] {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.4s 0.6s, transform 0.6s 0.6s;
+}
+
+/*************************** Move on Y ***************************/
+[slider-move-on-y] {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s 0s, transform 0.6s 0s;
+}
+
+.is-removed [slider-move-on-y] {
+    transform: translateY(-15px);
+}
+
+.is-selected [slider-move-on-y] {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s 0.6s, transform 0.6s 0.6s;
+}
+
+/*************************** Letter animation ***************************/
+[slider-letter] .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-15%);
+    transition: transform 0.6s, opacity 0.4s;
+    will-change: transform, opacity;
+}
+
+.is-selected [slider-letter] .char {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.is-removed [slider-letter] .char {
+    opacity: 0;
+    transform: translateY(15%);
+}
+
+$char-count: 40; // Adjust this to the number of chars you have
+$base-delay: 0.4s;
+$delay-increment: 0.04s;
+$delay-increment-2: 0.01s;
+
+@for $i from 1 through $char-count {
+    .is-selected [slider-letter] .char:nth-child(#{$i}) {
+        transition-delay: $base-delay + ($i - 1) * $delay-increment;
+    }
+}
+
+@for $i from 1 through $char-count {
+    .is-removed [slider-letter] .char:nth-child(#{$i}) {
+        transition-delay: 0s + ($i - 1) * $delay-increment-2;
+    }
+}
+
+/*************************** Words animation ***************************/
+
+
+.sliderNav .split-words .single-word-inner {
+    display: inline-block;
+    transform: scaleY(0) rotate(0deg)!important;
+    will-change: transform, rotate;
+    transition: none;
+    transform-origin: bottom;
+}
+// .sliderNav.slide-to-prev .split-words .single-word-inner {
+//     transform-origin: top;
+// }
+
+.sliderNav .is-selected .split-words .single-word-inner {
+    transform: scaleY(1) rotate(0deg)!important;
+    transition: transform var(--animation-ease-fast) 0.2s;
+    transform-origin: bottom;
+}
+// .sliderNav.slide-to-prev .is-selected .split-words .single-word-inner {
+//     transform-origin: top;
+// }
+
+.sliderNav .is-removed .split-words .single-word-inner {
+    transform: scaleY(0) rotate(0deg)!important;
+    transition: transform var(--animation-ease-fast) 0s;   
+    transform-origin: top;
+}
+// .sliderNav.slide-to-prev .is-removed .split-words .single-word-inner {
+//     transform-origin: bottom;
+// }
+
+
+$word-count: 40;
+$base-delay: 0.15s;
+$delay-increment: 0.05s;
+$delay-increment-2: 0.05s;
+
+// @for $i from 1 through $word-count {
+//     .sliderNav .is-selected .single-word:nth-child(#{$i}) .single-word-inner {
+//         transition-delay: $base-delay + ($i - 1) * $delay-increment;
+//     }
+// }
+
+/*************************** Slider cards ***************************/
+[slider-card] {
+    //transform: translateY(-15px);
+    transform-origin:center left;
+    transition: opacity var(--animation-smooth), transform var(--animation-smooth), margin var(--animation-smooth);
+}
+
+[slider-card].is-removed {
+    //transform: translateY(15px);
+}
+
+[slider-card].is-selected {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--animation-smooth), transform var(--animation-smooth), margin var(--animation-smooth);
+}
+
+[slider-card] picture {
+    opacity: 0.4;
+    transition: opacity var(--animation-smooth);
+}
+
+[slider-card].is-selected picture {
+    opacity: 1;
+}
+
+// Mixin to generate styles for active slides
+@mixin active-slide($slide-number, $child-number, $opacity: 1, $translate-x: 0, $scale: 1, $margin-left: null, $rotate: 0deg) {
+    [data-active-slide="#{$slide-number}"] [slider-card]:nth-child(#{$child-number}) {
+        opacity: $opacity;
+        transform: translateX($translate-x) scale($scale) rotate($rotate);
+        @if $margin-left != null {
+            margin-left: calc((var(--use-width-card) * -1) - #{$margin-left});
+        }
+    }
+}
+
+// Generate styles for each active slide
+@include active-slide(2, 1, 1, 2px, 0.9, null, 0deg);
+@include active-slide(2, 2, 1, 0, 1, 1.5rem);
+
+@include active-slide(3, 1, 1.0, 4px, 0.8, null, 0deg);
+@include active-slide(3, 2, 1, 2px, 0.9, 1.5rem, 0deg);
+@include active-slide(3, 3, 1, 0, 1, 1.5rem);
+
+@include active-slide(4, 1, 1.0, 4px, 0.8, null, 0deg);
+@include active-slide(4, 2, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(4, 3, 1, 2px, 0.9, 1.5rem, 0deg);
+@include active-slide(4, 4, 1, 0, 1, 1.5rem);
+
+@include active-slide(5, 1, 1.0, 4px, 0.8, null, 0deg);
+@include active-slide(5, 2, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(5, 3, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(5, 4, 1, 2px, 0.9, 1.5rem, 0deg);
+@include active-slide(5, 5, 1, 0, 1, 1.5rem);
+
+@include active-slide(6, 1, 1.0, 4px, 0.8, null, 0deg);
+@include active-slide(6, 2, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(6, 3, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(6, 4, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(6, 5, 1, 2px, 0.9, 1.5rem, 0deg);
+@include active-slide(6, 6, 1, 0, 1, 1.5rem);
+
+@include active-slide(7, 1, 1.0, 4px, 0.8, null, 0deg);
+@include active-slide(7, 2, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(7, 3, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(7, 4, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(7, 5, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(7, 6, 1, 2px, 0.9, 1.5rem, 0deg);
+@include active-slide(7, 7, 1, 0, 1, 1.5rem);
+
+@include active-slide(8, 1, 1.0, 4px, 0.8, null, 0deg);
+@include active-slide(8, 2, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(8, 3, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(8, 4, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(8, 5, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(8, 6, 1.0, 4px, 0.8, 1.5rem, 0deg);
+@include active-slide(8, 7, 1, 2px, 0.9, 1.5rem, 0deg);
+@include active-slide(8, 8, 1, 0, 1, 1.5rem);
+
+//
+.slider-bg-color {
+    background-color: paleturquoise;
+    transition: background-color 0.6s 0s;
+}
+[data-active-slide="2"].slider-bg-color {
+    background-color: papayawhip;
+}
+[data-active-slide="3"].slider-bg-color {
+    background-color: pink;
+}
+[data-active-slide="4"].slider-bg-color {
+    background-color: palegreen;
+}
+[data-active-slide="5"].slider-bg-color {
+    background-color: palevioletred;
+}
+[data-active-slide="6"].slider-bg-color {
+    background-color: palegoldenrod;
+}
+
+
+//Da wheel
+.slider-text-rotate {
+   rotate: 6deg;
+}
+.slider-wheel svg {
+    //rotate: var(--rotate-value);
+    transition: rotate var(--animation-primary-expo) 0.2s;
+}
+
+
+// Responsive activated sliders
+[slider-xxl]:after, [slider-xl]:after, [slider-lg]:after , [slider-md]:after  {
+    content: '';
+}
+
+@include media-breakpoint-down(xxl) {
+    [slider-xxl]:after {
+        content: 'flickity';
+        display: none;
+    }
+}
+
+@include media-breakpoint-down(xl) {
+    [slider-xl]:after {
+        content: 'flickity';
+        display: none;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    [slider-lg]:after {
+        content: 'flickity';
+        display: none;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    [slider-md]:after {
+        content: 'flickity';
+        display: none;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    [slider-sm]:after {
+        content: 'flickity';
+        display: none;
+    }
+}
+
+
+.slider-testimonials .flickity-slider {
+    display: flex;
+    align-items: center;
+
+}

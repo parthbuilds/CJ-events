@@ -1,0 +1,14 @@
+/* Scrollbar */
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    width: 1px;
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+html ::-webkit-scrollbar {
+    display: none
+}

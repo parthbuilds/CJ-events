@@ -1,0 +1,14 @@
+.sticky-reveal-wrapper {
+    height: 100vh;
+    top: -100vh;
+}
+
+.sticky-reveal-container {
+    top: -100vh;
+    height: calc(100vh + 100vh);
+}
+.sticky-reveal-inner {
+    height: 100vh;
+    top: calc(100vh - 100vh);
+    position: sticky;
+}

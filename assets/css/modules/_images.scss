@@ -1,0 +1,99 @@
+.object-position-top {
+    object-position: top!important;
+}
+.object-position-bottom {
+    object-position: bottom;
+}
+.object-position-center {
+    object-position: center;
+}
+.object-position-left {
+    object-position: left;
+}
+.object-position-right {
+    object-position: right;
+}
+
+.transform-origin-bottom {
+    transform-origin: left bottom!important;
+
+}
+.transform-origin-center {
+    transform-origin: center center!important;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+
+
+.mask-top {
+    mask-image: linear-gradient(to top, black 50%, transparent);
+}
+.mask-bottom {
+    mask-image: linear-gradient(to bottom, black 0%, transparent);
+}
+
+.mask-left {
+    mask-image: linear-gradient(to left, black 30%, transparent);
+}
+
+.mask-top-bottom, .mask-bottom-top {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 65%, transparent 100%);
+}
+
+
+.ratio img, .ratio video {
+    object-fit: cover;
+    //object-position: bottom;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    top: auto;
+}
+.image-cover {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset:0
+}
+
+// Full bg image or video
+.full-bg, 
+.full-bg video,
+.full-bg img,
+.full-bg svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* ------------------------- Parallax - Images -------------------------------------------------- */
+
+@include media-breakpoint-up(md) {
+    [data-parallax-strength] {
+        overflow: hidden;
+        --parallax-strength: 0%;
+        --parallax-height: 0%;
+    }
+    [data-parallax-strength] [data-parallax-target] {
+        position: relative;
+        height: calc(100% + (var(--parallax-height) * 2));
+        object-fit: cover;
+        width: 100%;
+        top: calc(var(--parallax-height) * -1);
+        will-change: transform;
+        -webkit-transform: translate3d(0,0,0);
+        z-index: 0;
+        rotate: 0.001deg;
+    }
+}
+ 

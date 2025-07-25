@@ -1,0 +1,242 @@
+/* ------------------------- Viewportheight -------------------------------------------------- */
+:root {
+    --vh-in-px: 8px;
+    //--vh: var(--vh-in-px);
+    --vh: 1vh;
+}
+@media (hover: hover) {
+    :root {
+        --vh: 1vh;
+    }
+    @supports (height: 1svh) { 
+        :root {
+            --vh: 1svh;
+        }
+    }
+}
+ 
+
+body {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    margin: 0;
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+    text-wrap: pretty;
+    /* text-rendering:optimizeSpeed; */
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+hr {
+    margin: 0;
+    border-color: currentColor;
+    opacity:1
+}
+
+picture {
+    display: block;
+}
+
+.full-vh, .min-vh-100{
+    min-height: 100svh;
+    min-height: calc(var(--vh) * 100);
+}
+.vhp-100{
+    height: 100svh;
+    height: calc(var(--vh) * 100);
+}
+.min-vh-50{
+    min-height: 50svh;
+    min-height: calc(var(--vh) * 50);
+}
+
+.vh-80 {
+    min-height: 80svh;
+    min-height: calc(var(--vh) * 80);
+}
+
+@include media-breakpoint-up(md) {
+    .full-vh-md {
+        min-height: 100svh;
+        min-height: calc(var(--vh) * 100);
+    }
+
+    .min-vh-md-100 {
+        min-height: 100svh;
+        min-height: calc(var(--vh) * 100);
+    }
+    .min-vh-md-200 {
+        min-height: 200svh;
+        min-height: calc(var(--vh) * 200);
+    }
+
+    .vh-md-100 {
+        height: 100svh;
+        height: calc(var(--vh) * 100);
+    }
+
+
+}
+
+@include media-breakpoint-up(xl) {
+    .vh-xl-100 {
+        height: 100svh;
+        height: calc(var(--vh) * 100);
+    }
+}
+
+
+.translate-50 {
+    transform: translateX(-50%);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.inset-0 {
+    inset:0
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.user-select-none {
+    user-select: none;
+}
+
+.min-w-100 {
+    min-width: 100%;
+}
+
+.opacity-10 {
+    opacity: 0.1;
+}
+
+.opacity-20 {
+    opacity: 0.2;
+}
+
+.text-transparent {
+    color: transparent;
+}
+
+.mix-bend-mode-difference {
+    //mix-blend-mode: difference;
+}
+
+.mix-bend-mode-overlay {
+    background-blend-mode: overlay;
+ }
+
+.z-3 {
+    z-index: 3!important;
+}
+
+.z-4 {
+    z-index: 4!important;
+}
+.z-5 {
+    z-index: 5!important;
+}
+.z-6 {
+    z-index: 6!important;
+}
+
+
+.z-01 {
+    z-index: 1!important;
+    
+}
+.z-02 {
+    z-index: 2!important;
+    
+}
+.z-03 {
+    z-index: 3!important;
+}
+.z-04 {
+    z-index: 4!important;
+}
+
+.min-vh-80 {
+    min-height: 80vh;
+}
+
+// Image hovers
+.no-touchevents .d-none-notouch{
+    display: none!important;
+}
+.no-touchevents .min-vh-100-notouch{
+    min-height: 100svh;
+    min-height: calc(var(--vh) * 100);
+}
+
+.touchevents .d-none-touch{
+    display: none!important;
+}
+
+.touchevents .d-block-touch {
+    display: block!important;
+}
+.touchevents .d-flex-touch {
+    display: flex!important;
+}
+
+@include media-breakpoint-up(sm) {
+    .translate-sm-down {
+        transform: translateY(100%);
+    }
+    .translate-sm-up {
+        transform: translateY(-100%);
+    }
+}
+
+
+.contain-paint {
+    contain: paint;
+}
+
+@include media-breakpoint-up(md) {
+    .position-md-sticky {
+        position: sticky;
+    }
+    .position-md-absolute {
+        position: absolute;
+    }
+}
+
+
+@include media-breakpoint-down(md) {
+    .pt-0-md-down {
+        padding-top: 0;
+    }
+    .opacity-0-md-down {
+        opacity: 0;
+    }
+}
+
+
+.transform-origin-right {
+    transform-origin: right;
+}
+
+.top-sticky {
+    top: calc(var(--top-distance-1)*.8);
+}
+
+.inverted {
+    filter: invert(1);
+}

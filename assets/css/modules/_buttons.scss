@@ -1,0 +1,485 @@
+/* ------------------------- Buttons -------------------------------------------------- */
+.btn {
+    font-family: var(--bs-font-terciary);
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-decoration: none;
+    outline: 0;
+    border-radius: 999px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+
+
+
+// Side icons bubbles
+.btn .icon {
+    transition: transform var(--animation-elastic-css);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 999px;
+    transform: rotate(0.001deg);
+    flex-shrink: 0;
+}
+.btn .icon.first {
+    transform: scale(0) rotate(0.001deg);
+    transform-origin: left;
+}
+.btn .icon.second {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    transform: scale(1) rotate(0.001deg);
+    transform-origin: right;
+}
+.icon .icon-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: currentColor;
+}
+
+.icon-border {
+    border: 1px solid var(--bs-purple);
+}
+
+.icon .icon-content {
+    width: 18px;
+    position: relative;
+    display: flex;
+    //color: currentColor;
+    transform: rotate(0.001deg);
+    transition: transform var(--animation-elastic-css);
+}
+
+
+
+
+.btn .icon-2 {
+    width: auto!important;
+    min-width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+.btn .icon-2.first {
+    transform-origin: center center;
+}
+.btn .icon-2.second {
+    position: absolute;
+    z-index: 2;
+    right: auto;
+    transform: scale(1) rotate(0.001deg);
+    transform-origin: center center;
+}
+.btn .icon-2.third {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    transform: scale(0) rotate(0.001deg);
+    transform-origin: center center;
+}
+
+.icon .icon-content-2 {
+    padding: 0 32px;
+    position: relative;
+    display: flex;
+    top: 1px;
+    transform: rotate(0.001deg);
+    transition: transform var(--animation-elastic-css);
+}
+.border-shaddow {
+    box-shadow: 0 0 0 2px var(--shadow-color, var(--bs-yellow));
+}
+
+// small
+.btn.sm {
+    font-size: 16px;
+}
+.btn.sm  .icon-2 {
+    height: 48px;
+    min-width: 48px;
+}
+.btn.sm .icon .icon-content-2 {
+    padding: 0 20px;
+}
+
+
+
+
+// Button text
+.btn-content {
+    position: relative;
+    height: 60px;
+    transform: translateX(-60px) rotate(0.001deg);
+    transition: transform var(--animation-elastic-css);
+}
+.btn-fill {
+    background: currentColor;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    top: 0;
+    left: 0;
+}
+.btn-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 32px;
+    top: -1px;
+    white-space: nowrap;
+    position: relative;
+    color: currentColor;
+    border-radius: 999px;
+}
+.btn-z {
+    margin-left: -32px;
+    transition: margin-left var(--animation-elastic-css);
+    text-transform: none;
+    font-weight: 400;
+}
+.btn-z:hover {
+    margin-left: 0
+}
+
+// Responsive
+@include media-breakpoint-down(xl) {
+    .btn {
+        font-size: 15px;
+    }
+    .btn .btn-content {
+        height: 54px;
+        transform: translateX(-54px) rotate(0.001deg);
+    }
+    .btn  .icon {
+        height: 54px;
+        min-width: 54px;
+        width: 54px;
+    }
+    .btn-text {
+        padding: 0 28px;
+    }
+    .btn  .icon-2 {
+        height: 54px;
+        min-width: 54px;
+    }
+    .btn:not(.sm) .icon.second {
+        width: 54px;
+        height: 54px;
+    }
+}
+
+
+@include media-breakpoint-down(md) {
+    .btn {
+        font-size: 14px;
+    }
+    .btn .btn-content {
+        height: 48px;
+        transform: translateX(-48px) rotate(0.001deg);
+    }
+    .btn-text {
+        padding: 0 24px;
+    }
+    .btn  .icon {
+        height: 48px;
+        min-width: 48px;
+        width: 48px;
+    }
+    .btn  .icon-2 {
+        height: 48px;
+        min-width: 48px;
+    }
+    .btn:not(.sm) .icon.second {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+
+
+@include media-breakpoint-down(xl) {
+    .btn.sm {
+        font-size: 14px;
+    }
+    .btn.sm  .icon-2 {
+        height: 44px;
+        min-width: 44px;
+    }
+}
+@include media-breakpoint-down(md) {
+    .btn.sm {
+        font-size: 12px;
+    }
+    .btn.sm  .icon-2 {
+        height: 38px;
+        min-width: 38px;
+    }
+}
+
+
+/* --- Hover styles--- */
+@media (hover: hover) {
+    .btn:hover .icon.first {
+        transform: scale(1) rotate(0.001deg);
+    }
+    .btn:hover .icon.second {
+        transform: scale(0) rotate(0.001deg);
+    }
+    .btn:hover .btn-content{
+        transform: translateX(0px) rotate(0.001deg);
+    }
+}
+
+// NAV!!
+.nav-open.pageTransitionEnter .nav-menu .icon.first {
+    transform: scale(0) rotate(0.001deg);
+}
+.nav-open.pageTransitionEnter .nav-menu .icon.second {
+    transform: scale(0) rotate(0.001deg);
+}
+ .nav-open.pageTransitionEnter .nav-menu .icon.third {
+    transform: scale(1) rotate(0.001deg);
+}
+
+
+.nav-open .nav-menu .icon.third .text-white{
+    transition: color 0.3s;
+}
+.nav-open .nav-menu .icon.third:hover .text-white {
+    color: var(--bs-yellow)!important;
+}
+
+// Fancy
+
+.link-fancy {
+    display: inline-block;
+    color: currentColor;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: bottom 2px left;
+    background-size: 100% 1px;
+    transition: background-size 0.4s ease;
+}
+.link-fancy:hover {
+    background-size: 0% 1px;
+    color: inherit;
+    background-position: bottom 2px right;
+}
+
+.link-fancy.inverted {
+    background-position: bottom 2px right;
+    background-size: 0% 2px;
+    filter: invert(0);
+}
+.link-fancy.inverted:hover {
+    background-position: bottom 2px left;
+    background-size: 100% 2px;
+}
+
+
+.link-fancy-2 {
+    display: inline-block;
+    min-width: 11ch;
+    color: currentColor;
+    text-decoration: none;
+    transition: color 0.3s;
+
+}
+.link-fancy-2:hover {
+    color: var(--bs-light);
+}
+
+
+
+// Supa link
+.supa-link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    
+    
+}
+.supa-link-list li {
+    counter-increment: li;
+    position: relative;
+    display: flex;
+}
+.supa-link-list li:hover span,
+//.supa-link-list li:hover .da-date,
+.supa-link-list li:hover em {
+    z-index: 98;
+}
+
+.supa-link {
+    color: var(--bs-indigo);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 40px 0;
+    line-height: 1.3;
+}
+.supa-link > div {
+    position: relative;
+    z-index: 1;
+    //max-width: calc(100% - 100px);
+    max-width: 45ch;
+    //display: flex;
+}
+
+@include media-breakpoint-up(lg) {
+    
+    .supa-link-list li:first-child .supa-link > div span:before{
+        content: 'NEW';
+        font-size: 14px;
+        font-weight: 700;
+        position: absolute;
+        left: calc(var(--indent-left) * -1 - var(--indent-logo-padding));
+        top: 0;
+        width: 64px;
+        height: 33px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--bs-yellow);
+        color: var(--bs-indigo);
+    }
+}
+
+
+.supa-link:before {
+    content: "";
+    height: 1px;
+    background-color: var(--bs-purple);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-weight: 600;
+    z-index: -1;
+}
+.supa-link-list li:last-child .supa-link{
+    border-bottom: 1px solid var(--bs-purple);
+}
+
+
+
+.supa-link span{
+    position: relative;
+    display: inline;
+    color: currentColor;
+    text-decoration: none;
+    font-family: var(--bs-font-terciary);
+    @include font-size(2rem);
+    font-weight: 600;
+    transform-origin: right;
+    background-image: linear-gradient(90deg, currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 0% 1px;
+    transition: background-size  0.8s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.4s;
+    max-width: 20ch;
+    
+}
+
+.supa-link em, 
+.arrow {
+    position: relative;
+    display: block;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    color: var(--bs-teal);
+    transition: color 0.3s;
+}
+
+.supa-link em::after {
+    scale: 0;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: red;
+    border-radius: 999px;
+    background-color: var(--bs-teal);
+    transition:scale 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.arrow {
+    scale: 1!important;
+}
+@include media-breakpoint-up(md) {
+    .supa-link:hover em {
+        color: #fff;
+    }
+}
+
+.supa-link svg {
+    position: relative;
+    z-index: 1;
+}
+.supa-link:hover em::after {
+    scale: 1;
+}
+
+@media (hover: hover) {
+    .supa-link:hover {
+        color: var(--bs-purple);
+    }
+   .supa-link:hover span {
+        background-size: 100% 1px;
+        background-position: bottom left;
+    }
+}
+
+.da-date {
+    position: relative;
+    margin-left: auto;
+    color: currentColor;
+    width: 18%;
+    font-size: 16px;
+    transition: color 0.3s;
+    flex-shrink: 0;
+    
+}
+
+@include media-breakpoint-down(md) {
+    .supa-link {
+        flex-wrap: wrap;
+    }
+    .supa-link > div {
+        width: 100%;
+    }
+    .da-date {
+        width: 50%!important;
+        margin-left: 0;
+    }
+    .supa-link em::after {
+        display: none;
+    }
+}
+

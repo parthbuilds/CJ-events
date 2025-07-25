@@ -1,0 +1,170 @@
+:root {
+    --headings-margin-top: 0px;
+    --headings-font-family: var(--bs-font-terciary);
+    --headings-font-weight: 500;
+    --headings-line-height: 1.2;
+    --bs-heading-color: currentColor;
+}
+
+%heading {
+    margin-top: var(--headings-margin-top);
+    @include margin-bottom(3.5rem);
+    font-family: var(--headings-font-family);
+    font-style: var(--headings-font-style);
+    font-weight: var(--headings-font-weight);
+    line-height: var(--headings-line-height);
+    color: var(--bs-heading-color);
+    //@include margin-bottom(3rem);
+}
+
+.font-secondary {
+    font-family: var(--bs-font-secondary)!important;
+}
+
+.font-terciary {
+    font-family: var(--bs-font-terciary)!important;
+}
+
+h1, .h1,
+h2, .h2 {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: var(--bs-font-secondary);
+}
+
+h1, .h1 {
+    line-height: 0.9;
+    font-size: 7.5vw;
+}
+
+h2, .h2 {
+    //word-spacing: 0.2em;
+}
+
+@media (min-width: 1600px) {
+    h1, .h1 {
+        font-size: 7.75rem;
+    }
+}
+
+
+
+@include media-breakpoint-down(sm) {
+    h1, .h1 {
+        font-size: 8.5vw;
+    }
+    .h1-home {
+        font-size: 11.5vw;
+    }
+    h2, .h2 {
+        font-size: 30px;
+    }
+}
+
+
+h2,
+.h2 {
+    line-height: 0.93;
+}
+
+h3,
+.h3 {
+    line-height: 1.1;
+}
+
+h4,
+.h4 {
+    line-height: 1.3;
+}
+
+
+.h4 p{
+    @include margin-bottom(2.5rem);
+}
+
+h4.split-chars, .h4.split-chars {
+    line-height: 1.15;
+}
+
+h5,
+.h5 {
+    line-height: 1.2;
+}
+
+h6,
+.h6 {
+    line-height: 1.25;
+}
+
+.lead {
+    line-height: 1.416;
+    @include margin-bottom(2.5rem);
+}
+
+.subheading {
+    font-family: var(--headings-font-family);
+    line-height: 1.3;
+    @include font-size(2.875rem);
+    @include margin-bottom(3.5rem);
+}
+
+.stat {
+    font-family: var(--bs-font-secondary);
+    font-size: 6vw;
+    line-height: 1;
+}
+
+
+small,
+.small {
+    font-size: 16px;
+}
+
+.xsmall {
+    font-size: 16px;
+}
+.xxsmall {
+    font-size: 14px;
+}
+
+.stat {
+    @include font-size(8rem);
+}
+
+@include media-breakpoint-down(md) {
+    .stat {
+        font-size: 70px;
+    }
+}
+
+.fs-z {
+    font-size: 4vw;
+}
+
+@include media-breakpoint-up(sm) {
+    .fs-z {
+        @include font-size($h4-font-size);
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .fs-y {
+        font-size: 12px;
+    }
+
+    .text-r {
+        font-size: 5.7vw;
+    }
+}
+
+
+
+.massive {
+    font-size: 14.5vw;
+}
+
+@include media-breakpoint-down(md) {
+    h2, .h2 {
+        line-height: 1.03;
+    }
+}

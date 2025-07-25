@@ -1,0 +1,142 @@
+// V1
+.scroll-section-height {
+    min-height: 250svh;
+    //min-height: calc(var(--vh) * 250);
+}
+
+//V2
+.mark {
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100vw;
+    left: 0;
+    z-index: 50;
+    overflow: hidden;
+    color: currentColor;
+    background-color: transparent;
+}
+
+.mark__inner {
+    display: flex;
+    gap: 10vw;
+    width: max-content;
+    position: relative;
+    transform: translateX(100vw);
+    will-change: transform;
+}
+
+.mark__inner span {
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.grid-z {
+    padding: 10vh 0;
+    width: 100%;
+    max-width: 50%;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+    display: grid;
+    gap: 2rem;
+    // margin-top: 20vh;
+    // margin-bottom: 10vh;
+    margin: auto;
+}
+
+.grid--full {
+    width: 100%;
+    margin: 10vh 0;
+    height: auto;
+    aspect-ratio: 1.5;
+    max-width: none;
+    padding: 1rem;
+    gap: 1rem;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.grid__item {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    perspective: 800px;
+    will-change: transform, opacity;
+}
+
+.grid__item > .grid__item-img,
+.grid__item-imgwrap {
+    width: 100%;
+    aspect-ratio: 1.2;
+    border-radius: 4px;
+    transform-style: preserve-3d;
+}
+
+.grid__item-imgwrap {
+    position: relative;
+    overflow: hidden;
+    will-change: filter;
+}
+
+.grid__item-img {
+    background-size: cover;
+    background-position: 50% 20%;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+.grid__item-imgwrap > .grid__item-img {
+    position: absolute;
+    top: calc(-1 * 0px);
+    left: calc(-1 * 0px);
+    height: calc(100% + 0px * 2);
+    width: calc(100% + 0px * 2);
+}
+
+
+  //V3
+.grid-y {
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  width: 100%;
+  perspective: 3000px;
+}
+
+.grid-wrap {
+  height: auto;
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1vw;
+  transform-style: preserve-3d;
+}
+
+.grid__itemy {
+  aspect-ratio: 0.8;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+}
+
+.grid__itemy-inner {
+  position: relative;
+  width: calc(1 / 1 * 100%);
+  height: calc(1 / 1 * 100%);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+  
+// V4
+.scroll-section-height-4 {
+    min-height: 400svh;
+    //min-height: calc(var(--vh) * 400);
+}

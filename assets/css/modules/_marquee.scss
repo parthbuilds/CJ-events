@@ -1,0 +1,113 @@
+.marquee-group {
+   position: relative;
+}
+
+.marquee {
+   position: relative;
+  
+}
+
+.marquee .marquee-scroll {
+   position: relative;
+   display: flex;
+   width: 100%;
+   //margin-left: 20%;
+   white-space: nowrap;
+   flex-wrap: nowrap;
+   
+}
+[data-marquee-direction="right"] .marquee-scroll {
+   justify-content: flex-end;
+   //margin-left: -20%;
+}
+
+.marquee .marquee-content {
+   position: relative;
+   display: flex;
+   transform: translate3d(0, 0, 0);
+   will-change: transform;
+   contain: paint;
+}
+
+.marquee .marquee-item {
+   //width: 15vw;
+}
+
+.marquee-item-logo {
+   padding: 60px 0;
+   width: calc(100px + 12vw);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgba(255,255,255,0.03);
+   border-radius:3px;
+   height: 100%;
+}
+
+.marquee-item-logo img {
+   max-width: 50%;
+   max-height: 80%;
+}
+
+@include media-breakpoint-down(md) {
+   .marquee-item-logo {
+      width: calc(100px + 8vw);
+      padding: 20px 0;
+   }
+}
+
+
+
+
+.item-logo {
+   width: calc(150px + 2vw);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 30px 0;
+}
+
+.item-logo img {
+   max-width: 60%;
+   max-height: 80%;
+}
+
+.marqueeAnim1 {
+   transform-origin: center;
+}
+
+.marqueeAnim1 {
+   // height: 50vh;
+   // display: flex;
+   // align-items: end;
+}
+.marquee-1 {
+   transform: translateY(55%) rotate(calc(180deg + var(--rotate-degree)));
+   transform-origin: center;
+}
+.marquee-2 {
+   transform: translateY(55%) rotate(calc(0deg + var(--rotate-degree)));
+   transform-origin:  center;
+}
+
+.marquee-3 {
+   transform: translateY(110%) rotate(calc(180deg + var(--rotate-degree)));
+   transform-origin: center;
+}
+.marquee-4 {
+   transform: translateY(110%) rotate(calc(0deg + var(--rotate-degree)));
+   transform-origin:  center;
+}
+// .marqueeAnim2 {
+//    transform-origin: center;
+// }
+
+
+@include media-breakpoint-down(md) {
+   .marquee-1 {
+      transform: translateY(30%) rotate(calc(180deg + var(--rotate-degree)));
+   }
+   .marquee-2 {
+      transform: translateY(30%) rotate(calc(0deg + var(--rotate-degree)));
+   }
+}
