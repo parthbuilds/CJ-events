@@ -56,18 +56,9 @@ export function initLoaderShort() {
         ease: Expo.easeInOut
     }, 0);
 
-    // Dergrees logo icon animate
-    // tl.to(".loader-degrees", {
-    //     opacity: 1,
-    //     y:0,
-    //     delay:0.6,
-    //     duration:1.5,
-    //     ease: Expo.easeInOut
-    // }, 0);
-
     // Remove the masked 360 video before the white logo moves in
     tl.set(".mask, .loader-degrees", {
-        opacity: 0,
+       opacity: 0,
     }, transitionOffset);
 
     // Move the logo into its position using Gsap flip plugin
@@ -153,7 +144,7 @@ export function initLoader() {
         ease: "primary-ease"
     }, transitionOffset - 1.8);
 
-    // Animate the masked 360 video to move up.
+    
     tl.to(".mask-holder .mask", {
         maskPosition: '0 50%',
         stagger: 0.1,
